@@ -1,0 +1,763 @@
+/* ====================================================================
+   PARKVISION AI - EXACT FIGMA MATCH STYLESHEET
+   Replicating the exact Figma Make design from user screenshots
+   ==================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-page: #060B1E;
+    --bg-sidebar: #060B1E;
+    --bg-card: #0B132E;
+    --bg-card-hover: #0E1838;
+    --border-card: #152248;
+    --border-card-subtle: #121C3C;
+    
+    --brand-blue: #2563EB;
+    --brand-blue-glow: rgba(37, 99, 235, 0.35);
+    --brand-red: #DC2626;
+    
+    --neon-green: #10B981;
+    --neon-red: #EF4444;
+    --neon-amber: #F59E0B;
+    --neon-purple: #8B5CF6;
+    
+    --text-primary: #FFFFFF;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+    
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Hide Streamlit Chrome & Headers */
+#MainMenu, header, footer, .stDeployButton {
+    visibility: hidden !important;
+    display: none !important;
+}
+
+/* Streamlit Base Overrides */
+.stApp {
+    background-color: var(--bg-page) !important;
+    color: var(--text-primary) !important;
+    font-family: var(--font-sans) !important;
+}
+
+.block-container {
+    padding-top: 1.8rem !important;
+    padding-bottom: 2rem !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    max-width: 100% !important;
+}
+
+/* Sidebar Custom Styling */
+section[data-testid="stSidebar"] {
+    background-color: var(--bg-sidebar) !important;
+    border-right: 1px solid #142042 !important;
+    width: 260px !important;
+}
+
+section[data-testid="stSidebar"] > div {
+    padding-top: 1.5rem !important;
+    padding-left: 1.2rem !important;
+    padding-right: 1.2rem !important;
+}
+
+/* Sidebar Brand Header (Image 1) */
+.sidebar-brand-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+}
+
+.brand-icon-p {
+    width: 38px;
+    height: 38px;
+    background: #3B82F6;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.35rem;
+    color: #FFFFFF;
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.45);
+}
+
+.brand-text-title {
+    font-family: var(--font-sans);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.1;
+}
+
+.brand-text-ai {
+    color: #38BDF8;
+    font-weight: 800;
+}
+
+.brand-subtitle {
+    font-size: 0.72rem;
+    color: #64748B;
+    margin-top: 2px;
+}
+
+.brand-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #10B981;
+    letter-spacing: 0.08em;
+    margin-top: 8px;
+    margin-bottom: 24px;
+}
+
+.status-dot-green {
+    width: 6px;
+    height: 6px;
+    background: #10B981;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 8px #10B981;
+}
+
+/* Custom Navigation Menu Item Styling */
+.nav-btn-custom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #94A3B8;
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s ease;
+    margin-bottom: 4px;
+}
+
+.nav-btn-custom:hover {
+    background: rgba(30, 58, 138, 0.2);
+    color: #FFFFFF;
+}
+
+.nav-btn-custom.active {
+    background: #0F1F45;
+    border: 1px solid #2563EB;
+    color: #FFFFFF;
+    box-shadow: 0 0 14px rgba(37, 99, 235, 0.3);
+}
+
+.nav-red-dot {
+    width: 7px;
+    height: 7px;
+    background-color: #EF4444;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 6px #EF4444;
+}
+
+/* Page Top Header (Figma exact) */
+.page-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.page-title {
+    font-family: var(--font-sans);
+    font-size: 2rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+.page-subtitle {
+    font-size: 0.92rem;
+    color: #94A3B8;
+    margin: 4px 0 0 0;
+}
+
+.page-datetime {
+    text-align: right;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: #64748B;
+    line-height: 1.4;
+}
+
+/* 5 KPI Cards in Figma Design (Image 1) */
+.kpi-row-5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.kpi-card-exact {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: 12px;
+    padding: 18px 20px;
+    min-height: 95px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.kpi-exact-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+}
+
+.kpi-exact-val {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1;
+}
+
+.kpi-dash-line {
+    width: 26px;
+    height: 4px;
+    border-radius: 2px;
+}
+
+.dash-red { background: #EF4444; box-shadow: 0 0 8px rgba(239, 68, 68, 0.6); }
+.dash-green { background: #10B981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.6); }
+.dash-amber { background: #F59E0B; box-shadow: 0 0 8px rgba(245, 158, 11, 0.6); }
+.dash-purple { background: #8B5CF6; box-shadow: 0 0 8px rgba(139, 92, 246, 0.6); }
+
+/* Standard Figma Card Container */
+.figma-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: 12px;
+    padding: 20px;
+    height: 100%;
+}
+
+.figma-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+}
+
+/* AI Reliability List Row */
+.rel-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #142042;
+    font-size: 0.88rem;
+}
+
+.rel-item-row:last-child {
+    border-bottom: none;
+}
+
+.rel-item-label {
+    color: #94A3B8;
+}
+
+.rel-dash-green {
+    width: 14px;
+    height: 3px;
+    background: #10B981;
+    border-radius: 2px;
+}
+
+.rel-dash-blue {
+    width: 14px;
+    height: 3px;
+    background: #3B82F6;
+    border-radius: 2px;
+}
+
+.rel-dash-purple {
+    width: 14px;
+    height: 3px;
+    background: #8B5CF6;
+    border-radius: 2px;
+}
+
+/* Smart Alert Blue Notice Box */
+.alert-blue-box {
+    background: rgba(14, 28, 64, 0.8);
+    border: 1px solid rgba(59, 130, 246, 0.35);
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.88rem;
+    color: #CBD5E1;
+    line-height: 1.5;
+}
+
+/* Slot Overview Matrix in Figma */
+.slot-matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.slot-dot-box {
+    background: #0E1838;
+    border: 1px solid #162450;
+    border-radius: 6px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slot-dot-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.dot-gray { background: #475569; }
+.dot-green { background: #10B981; box-shadow: 0 0 6px #10B981; }
+.dot-red { background: #EF4444; box-shadow: 0 0 6px #EF4444; }
+.dot-amber { background: #F59E0B; box-shadow: 0 0 6px #F59E0B; }
+
+.slot-matrix-legend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    font-size: 0.78rem;
+    color: #94A3B8;
+    margin-bottom: 18px;
+}
+
+/* Primary Action Buttons */
+.btn-solid-blue {
+    background: #2563EB !important;
+    border: none !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    padding: 10px 18px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.45) !important;
+    width: 100% !important;
+    text-align: center !important;
+    display: block !important;
+    margin-bottom: 8px !important;
+}
+
+.btn-solid-red {
+    background: #DC2626 !important;
+    border: none !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    padding: 10px 18px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 14px rgba(220, 38, 38, 0.45) !important;
+    width: 100% !important;
+    text-align: center !important;
+    display: block !important;
+}
+
+.btn-solid-burgundy {
+    background: #7F1D1D !important;
+    border: 1px solid #991B1B !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    padding: 10px 18px !important;
+    border-radius: 8px !important;
+    width: 100% !important;
+    text-align: center !important;
+    display: block !important;
+}
+
+/* Upload Video Dashed Area (Image 2) */
+.upload-dashed-container {
+    border: 2px dashed rgba(59, 130, 246, 0.4);
+    border-radius: 14px;
+    background: rgba(11, 19, 46, 0.5);
+    padding: 48px 24px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.upload-cam-icon {
+    width: 54px;
+    height: 54px;
+    background: rgba(30, 58, 138, 0.4);
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 14px;
+}
+
+.upload-pill {
+    display: inline-block;
+    background: rgba(30, 58, 138, 0.5);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    border-radius: 999px;
+    padding: 4px 14px;
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    color: #38BDF8;
+    margin: 0 4px;
+}
+
+/* Parking Map (Image 3) */
+.entrance-center-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #0E1838;
+    border: 1px solid #162450;
+    border-radius: 6px;
+    padding: 4px 16px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #94A3B8;
+}
+
+.slot-box-figma {
+    background: #0E1838;
+    border: 1px solid #162450;
+    border-radius: 8px;
+    padding: 10px 12px;
+    min-height: 85px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.accessible-tag-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.65rem;
+    color: #38BDF8;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin-top: 4px;
+}
+
+.emergency-tag-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.65rem;
+    color: #8B5CF6;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin-top: 4px;
+}
+
+/* Emergency Mode List (Image 4) */
+.emg-item-card {
+    background: #0E1838;
+    border: 1px solid #162450;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.emg-item-card:hover {
+    border-color: #EF4444;
+    background: rgba(239, 68, 68, 0.08);
+}
+
+.emg-item-card.selected {
+    border-color: #EF4444;
+    background: rgba(239, 68, 68, 0.15);
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.2);
+}
+
+/* Smart Recommendation Mode Tabs (Image 5) */
+.rec-tab-box {
+    background: #0B132E;
+    border: 1px solid #162450;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.rec-tab-box:hover {
+    border-color: #2563EB;
+}
+
+.rec-tab-box.active {
+    background: #0F1F45;
+    border: 1.5px solid #2563EB;
+    box-shadow: 0 0 16px rgba(37, 99, 235, 0.3);
+}
+
+/* ====================================================================
+   LOCKED SCREEN STYLES (Strict Requirement 3)
+   ==================================================================== */
+.locked-screen-card {
+    background: rgba(11, 19, 46, 0.7);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: 16px;
+    padding: 60px 30px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(245, 158, 11, 0.05);
+    backdrop-filter: blur(12px);
+    max-width: 720px;
+    margin: 40px auto;
+}
+
+.lock-big-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(245, 158, 11, 0.12);
+    border: 2px solid rgba(245, 158, 11, 0.4);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.4rem;
+    color: #F59E0B;
+    margin-bottom: 20px;
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.25);
+}
+
+.lock-card-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+}
+
+.lock-card-message {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #FCD34D;
+    margin-bottom: 14px;
+}
+
+.lock-card-desc {
+    font-size: 0.88rem;
+    color: #94A3B8;
+    max-width: 520px;
+    margin: 0 auto 28px auto;
+    line-height: 1.6;
+}
+
+/* Exit Center Badge */
+.exit-center-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #0E1838;
+    border: 1px solid #10B981;
+    border-radius: 6px;
+    padding: 4px 16px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #10B981;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.25);
+}
+
+/* Temporal Verification Flow Visualizer */
+.tv-flow-box {
+    background: rgba(14, 24, 56, 0.75);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 16px 0;
+}
+
+.tv-flow-steps {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.tv-step-node {
+    flex: 1;
+    background: #0B132E;
+    border: 1px solid #1A2E66;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+}
+
+.tv-step-node.confirmed {
+    border-color: #10B981;
+    background: rgba(16, 185, 129, 0.1);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+}
+
+.tv-step-label {
+    font-size: 0.72rem;
+    color: #94A3B8;
+    font-family: var(--font-mono);
+}
+
+.tv-step-val {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-top: 2px;
+}
+
+.tv-arrow {
+    color: #38BDF8;
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+/* Zone Breakdown Cards */
+.zone-card {
+    background: #0B132E;
+    border: 1px solid #162450;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.zone-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.zone-name {
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: #38BDF8;
+}
+
+.zone-pct-val {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #FFFFFF;
+}
+
+.zone-progress-bg {
+    width: 100%;
+    height: 8px;
+    background: #152248;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 8px 0;
+}
+
+.zone-progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 100%);
+    transition: width 0.3s ease;
+}
+
+/* Pipeline Architecture Diagram Steps */
+.pipeline-step-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.pipeline-step-card {
+    background: #0B132E;
+    border: 1px solid #162450;
+    border-radius: 8px;
+    padding: 14px;
+    position: relative;
+}
+
+.pipeline-step-num {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: #38BDF8;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.pipeline-step-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 4px;
+}
+
+.pipeline-step-desc {
+    font-size: 0.72rem;
+    color: #94A3B8;
+    line-height: 1.4;
+}
+
+/* Slot Border Status Classes */
+.slot-border-available {
+    border: 1.5px solid rgba(16, 185, 129, 0.45) !important;
+}
+
+.slot-border-occupied {
+    border: 1.5px solid rgba(239, 68, 68, 0.45) !important;
+}
+
+.slot-border-verifying {
+    border: 1.5px solid rgba(245, 158, 11, 0.45) !important;
+}
+
+.slot-border-maintenance {
+    border: 1.5px solid rgba(100, 116, 139, 0.45) !important;
+    background: rgba(30, 41, 59, 0.6) !important;
+}
+
+.slot-border-accessible {
+    border: 2px solid #3B82F6 !important;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3) !important;
+}
+
+.slot-border-emergency {
+    border: 2px solid #A855F7 !important;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.3) !important;
+}
+
